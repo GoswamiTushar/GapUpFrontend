@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # 3rd party
     'knox',
     'rest_framework',
+    'corsheaders',
     # local
     'users',
 ]
@@ -52,7 +53,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000"
+]
+
 
 ROOT_URLCONF = 'gapup.urls'
 
