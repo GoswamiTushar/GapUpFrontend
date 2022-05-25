@@ -61,7 +61,7 @@ const Signup = () => {
                 if (data.token) {
                     localStorage.clear();
                     localStorage.setItem('token', data.token);
-                    window.location.replace('//froggy550.pythonanywhere.com/dashboard');
+                    window.location.replace('https://frontend--gap-up.netlify.app/dashboard');
                 } else {
                     setEmail('');
                     setPassword('');

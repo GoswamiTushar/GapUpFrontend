@@ -8,7 +8,7 @@ const Login = () => {
 
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {
-            window.location.replace('http://localhost:3000/dashboard');
+            window.location.replace('https://frontend--gap-up.netlify.app/dashboard');
         } else {
             setLoading(false);
         }
