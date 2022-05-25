@@ -24,7 +24,7 @@ const Logout = () => {
             .then(data => {
                 console.log(data);
                 localStorage.clear();
-                window.location.replace('http://localhost:3000/login');
+                window.location.replace('//froggy550.pythonanywhere.com/login');
             })
     };
 

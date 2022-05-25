@@ -33,7 +33,7 @@ const Login = () => {
                 if (data.token) {
                     localStorage.clear();
                     localStorage.setItem('token', data.token);
-                    window.location.replace('http://localhost:3000/dashboard');
+                    window.location.replace('//froggy550.pythonanywhere.com/dashboard');
                 } else {
                     setUsername('');
                     setPassword('');
