@@ -8,19 +8,6 @@ const Dashboard = () => {
         if (localStorage.getItem('token') === null) {
             window.location.replace('http://localhost:3000/login');
         } else {
-            // fetch('http://127.0.0.1:8000/api/user/', {
-            //     method: 'GET',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //         Authorization: `Token ${localStorage.getItem('token')}`
-            //     }
-            // })
-            //     .then(res => res.json())
-            //     .then(data => {
-            //         setUserEmail(data.email);
-            //         setLoading(false);
-            //     });
-
             var myHeaders = new Headers();
             myHeaders.append("Authorization", `Token ${localStorage.getItem('token')}`);
 
@@ -30,7 +17,7 @@ const Dashboard = () => {
                 redirect: 'follow'
             };
 
-            fetch("http://127.0.0.1:8000/api/user/", requestOptions)
+            fetch("http://froggy550.pythonanywhere.com/api/user/", requestOptions)
                 .then(response => response.json())
                 .then(data => {
                     if (data.status === 200) {

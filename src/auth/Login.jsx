@@ -17,21 +17,17 @@ const Login = () => {
     const onSubmit = e => {
         e.preventDefault();
 
-        var myHeaders = new Headers();
-        myHeaders.append("Authorization", "Token a22dfffb9865ebfba2396fb70b8a2176c3c5b7152b69145bde82efcadd1ce01c ");
-
         var formdata = new FormData();
         formdata.append("username", username);
         formdata.append("password", password);
 
         var requestOptions = {
             method: 'POST',
-            headers: myHeaders,
             body: formdata,
             redirect: 'follow'
         };
 
-        fetch("http://127.0.0.1:8000/api/login/?username=froggy550&password=Tushar.1510", requestOptions)
+        fetch("http://froggy550.pythonanywhere.com/api/login/?username=froggy550&password=Tushar.1510", requestOptions)
             .then(response => response.json())
             .then(data => {
                 if (data.token) {
