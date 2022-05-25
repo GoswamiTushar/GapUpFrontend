@@ -14,7 +14,7 @@ const Logout = () => {
     const handleLogout = e => {
         e.preventDefault();
 
-        fetch('http://froggy550.pythonanywhere.com/api/logout/', {
+        fetch('//froggy550.pythonanywhere.com/api/logout/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

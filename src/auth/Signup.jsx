@@ -55,7 +55,7 @@ const Signup = () => {
             redirect: 'follow'
         };
 
-        fetch("http://froggy550.pythonanywhere.com/api/register/", requestOptions)
+        fetch("//froggy550.pythonanywhere.com/api/register/", requestOptions)
             .then(response => response.json())
             .then(data => {
                 if (data.token) {
