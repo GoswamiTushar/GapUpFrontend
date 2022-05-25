@@ -1,8 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
-    const [isAuth, setIsAuth] = useState(false);
+const Navbar = ({ isAuth, setIsAuth }) => {
 
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {

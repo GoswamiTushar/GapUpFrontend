@@ -61,7 +61,7 @@ const Signup = () => {
                 if (data.token) {
                     localStorage.clear();
                     localStorage.setItem('token', data.token);
-                    window.location.replace('https://frontend--gap-up.netlify.app/dashboard');
+                    window.location.replace('http://localhost:3000/dashboard');
                 } else {
                     setEmail('');
                     setPassword('');

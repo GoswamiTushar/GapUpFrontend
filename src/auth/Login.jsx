@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 
-const Login = () => {
+
+const Login = ({ isAuth, setIsAuth }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState(false);
     const [loading, setLoading] = useState(true);
-
+    const navigate = useNavigate();
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {
-            window.location.replace('https://frontend--gap-up.netlify.app/dashboard');
+            isAuth = true
+            navigate("/dashboard")
         } else {
             setLoading(false);
         }
@@ -27,13 +30,14 @@ const Login = () => {
             redirect: 'follow'
         };
 
-        fetch("//froggy550.pythonanywhere.com/api/login/?username=froggy550&password=Tushar.1510", requestOptions)
+        fetch("http://froggy550.pythonanywhere.com/api/login/", requestOptions)
             .then(response => response.json())
             .then(data => {
                 if (data.token) {
                     localStorage.clear();
                     localStorage.setItem('token', data.token);
-                    window.location.replace('//froggy550.pythonanywhere.com/dashboard');
+                    setIsAuth(true);
+                    navigate("/dashboard")
                 } else {
                     setUsername('');
                     setPassword('');

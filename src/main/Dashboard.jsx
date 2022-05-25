@@ -1,12 +1,16 @@
 import React, { useState, useEffect, Fragment } from 'react';
+import { useNavigate } from 'react-router-dom'
 
-const Dashboard = () => {
+
+const Dashboard = ({ isAuth, setIsAuth }) => {
     const [userEmail, setUserEmail] = useState('');
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (localStorage.getItem('token') === null) {
-            window.location.replace('http://localhost:3000/login');
+            setIsAuth(false)
+            navigate('/login')
         } else {
             var myHeaders = new Headers();
             myHeaders.append("Authorization", `Token ${localStorage.getItem('token')}`);
@@ -22,6 +26,7 @@ const Dashboard = () => {
                 .then(data => {
                     if (data.status === 200) {
                         setUserEmail(data.user_info.email);
+                        setIsAuth(true)
                         setLoading(false);
                     }
                 })

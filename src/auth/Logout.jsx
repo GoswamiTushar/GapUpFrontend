@@ -1,11 +1,16 @@
 import React, { useState, useEffect, Fragment } from 'react';
+import { useNavigate } from 'react-router-dom'
 
-const Logout = () => {
+
+const Logout = ({ isAuth, setIsAuth }) => {
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         if (localStorage.getItem('token') == null) {
-            window.location.replace('http://localhost:3000/login');
+            setIsAuth(false)
+            navigate("/login")
         } else {
             setLoading(false);
         }
@@ -24,7 +29,8 @@ const Logout = () => {
             .then(data => {
                 console.log(data);
                 localStorage.clear();
-                window.location.replace('//froggy550.pythonanywhere.com/login');
+                setIsAuth(false)
+                navigate("/login")
             })
     };
 
