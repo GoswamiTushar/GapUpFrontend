@@ -27,7 +27,7 @@ const Login = () => {
             redirect: 'follow'
         };
 
-        fetch("http://froggy550.pythonanywhere.com/api/login/?username=froggy550&password=Tushar.1510", requestOptions)
+        fetch("//froggy550.pythonanywhere.com/api/login/?username=froggy550&password=Tushar.1510", requestOptions)
             .then(response => response.json())
             .then(data => {
                 if (data.token) {
