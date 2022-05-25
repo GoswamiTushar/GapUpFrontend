@@ -21,6 +21,7 @@ def login_api(request):
             'email': user.email
         },
         'token': token,
+        'status': 200,
     })
 
 
@@ -31,6 +32,7 @@ def get_user_data(request):
     if user.is_authenticated:
         return Response(
             {
+                "status":200,
                 'user_info': {
                     'id': user.id,
                     'username': user.username,
@@ -40,8 +42,7 @@ def get_user_data(request):
             }
         )
 
-    return Response({'error': 'Not Authenticated'}, status=400)
-
+    return Response({'error': 'Not Authenticated'}, status=401)
 
 @api_view(['POST'])
 def register_api(request):
@@ -58,6 +59,8 @@ def register_api(request):
                 'username': user.username,
                 'email': user.email,
 
-            }
+            },
+            'token': token,
+            'status':201,
         }
     )
