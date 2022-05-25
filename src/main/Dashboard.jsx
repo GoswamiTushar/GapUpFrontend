@@ -24,8 +24,6 @@ const Dashboard = () => {
             var myHeaders = new Headers();
             myHeaders.append("Authorization", `Token ${localStorage.getItem('token')}`);
 
-            var formdata = new FormData();
-
             var requestOptions = {
                 method: 'GET',
                 headers: myHeaders,
