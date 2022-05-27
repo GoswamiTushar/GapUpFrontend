@@ -57,7 +57,7 @@ def make_it(answers):
     #     answers.append(ans)
     row = [answers]
     cwd = os.getcwd()
-    infile = open(cwd + r'/users/gapup_model.pkl', 'rb')
+    infile = open(cwd + r'/GapUpFrontend/users/gapup_model.pkl', 'rb')
     model = pickle.load(infile)
     yhat = model.predict(row)
     results = []
